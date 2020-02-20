@@ -5,16 +5,63 @@
     <title>NEWS API</title>
     <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
   </head>
-  <body>
-    <h1 class="text-primary jumbotron">Welcome to News Api </h1>
-    <img src="images/image1.jpg" alt="image">
-    <img src="images/image2.jpg" alt="image">
+  <body class="container">
+    <h1 class="text-center my-5">News Api </h1>
+    <!-- <img src="images/image1.jpg" alt="image">
+    <img src="images/image2.jpg" alt="image"> -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Article List</a>
+      </li>
+    </ul>
+    <!-- <form class="form-inline my-2 my-lg-0">
+      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search Article</button>
+    </form> -->
+  </div>
+</nav>
+
+
+
+    <div class="row my-5 px-2">
+      <!-- endpoints -->
+     <select id="endpoints" class="col mr-5 mt-3 mb-3 text-dark w-50" name="sort">
+       <option value="choose">Filter by</option>
+       <option value="country">Country</option>
+       <option value="category">Category</option>
+       <option value="category">Source</option>
+     </select>
+
+     <select id="terms" class="col mr-5 mt-3 mb-3 text-dark" name="terms">
+       <option value="choose">Search Term</option>
+       <option value="author">Author</option>
+       <option value="title">Title</option>
+       <option value="content">Content</option>
+     </select>
+     </div>
+     <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="button">Search Article</button>
+     <!-- <button id="submit" type="button" class="col mt-3 mb-3 btn btn-lg border border-dark w-50">Display </button> -->
+
+
+
+
+   <div class="row" id="result"></div>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
     <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="js/config.json"></script>
     <script src="js/script.js"></script>
 
   </body>
