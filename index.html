@@ -7,22 +7,21 @@
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
   </head>
-  <body class="container">
+  <body class="container-fluid">
     <h1 class="text-center my-5">News Api </h1>
-    <!-- <img src="images/image1.jpg" alt="image">
-    <img src="images/image2.jpg" alt="image"> -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link text-light px-3" href="#">HOME <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
+        <a class="nav-link text-light px-3" href="#">ABOUT</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Article List</a>
+        <a class="nav-link text-light px-3" href="#">ARTICLE LIST</a>
       </li>
     </ul>
     <!-- <form class="form-inline my-2 my-lg-0">
@@ -34,29 +33,37 @@
 
 
 
-    <div class="row my-5 px-2">
+    <div class="row py-2 px-2">
       <!-- endpoints -->
-     <select id="endpoints" class="col mr-5 mt-3 mb-3 text-dark w-50" name="sort">
-       <option value="choose">Filter by</option>
-       <option value="country">Country</option>
+     <select id="country" class="col mr-5 mt-4 mb-4 py-5 text-dark" name="sort">
+       <option value="choose">Country</option>
+       <option value="NewZealand">New Zealand</option>
+       <option value="UnitedState">United State</option>
+       <option value="Australia">Australia</option>
+     </select>
+
+     <select id="category" class="col mr-5 mt-4 mb-4 py-5 text-dark" name="terms">
+       <option value="choose">Category</option>
+       <option value="entertainment">Entertainment</option>
+       <option value="general">General</option>
+       <option value="health">Health</option>
+     </select>
+
+     <select id="source" class="col mr-5 mt-4 mb-4 py-5 text-dark" name="terms">
+       <option value="choose">Source</option>
        <option value="category">Category</option>
-       <option value="category">Source</option>
+       <option value="language">Language</option>
+       <option value="country">Country</option>
      </select>
 
-     <select id="terms" class="col mr-5 mt-3 mb-3 text-dark" name="terms">
-       <option value="choose">Search Term</option>
-       <option value="author">Author</option>
-       <option value="title">Title</option>
-       <option value="content">Content</option>
-     </select>
-     </div>
-     <button id="submit" class="btn btn-outline-success my-2 my-sm-0" type="button">Search Article</button>
+
+     <button id="submit" class="btn btn-outline-success my-sm-0" type="button">Search Article</button>
      <!-- <button id="submit" type="button" class="col mt-3 mb-3 btn btn-lg border border-dark w-50">Display </button> -->
+     </div>
 
 
 
-
-   <div class="row" id="result"></div>
+   <div class="row mt-5" id="result"></div>
 
     <script src="node_modules/jquery/dist/jquery.min.js"></script>
     <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
