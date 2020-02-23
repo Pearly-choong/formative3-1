@@ -1,33 +1,82 @@
 console.log("formative3-1 NewsAPI");
 
-$(document).ready(function(){
-  // $('h1').click(function(){
-  //   $(this).hide();
-  // });
-  // accessing key from json file
+//$('#homeSec').hide();
+$('#aboutSec').hide();
+$('#articleSec').hide();
 
+
+$(document).ready(function(){
+
+  //show home page
+  $('#home').on('click',function(){
+    $('#homeSec').show();
+    $('#aboutSec').hide();
+    $('#articleSec').hide();
+  })
+
+  //show about page
+  $('#about').on('click',function(){
+    $('#aboutSec').show();
+    $('#homeSec').hide();
+    $('#articleSec').hide();
+  })
+
+  //show articles page
+  $('#articles').on('click',function(){
+    $('#articleSec').show();
+    $('#homeSec').hide();
+    $('#aboutSec').hide();
+  });
+
+  $('#view').on('click',function(){
+    $('#articleSec').show();
+    $('#homeSec').hide();
+    $('#aboutSec').hide();
+  });
+
+  // $('#country').on('click',function(){
+  //   $('#source').hide();
+  //
+  // });
+  //
+  // $('#source').on('click',function(){
+  //   $('#country').hide();
+  //   $('#category').hide();
+  // });
+
+
+  //accessing key from json file
   var myKey = JSON.parse(apiKey);
   console.log(myKey[0]);
   myKey = myKey[0].key;
   console.log(myKey);
 
 
+
 document.getElementById('submit').addEventListener('click', function(){
 
+
   var country = document.getElementById('country').value;
-  console.log(country);
+  var category = document.getElementById('category').value;
+  var source = document.getElementById('source').value;
+  console.log(country, category, source);
+
+  displayData(country, category, source);
+
 });
 
 
 
+function displayAll(){
   $.ajax({
-    // url : `http://newsapi.org/v2/top-headlines?country=us&apiKey=1a9818ada3194ab28335127795b6d9e3`,
-    url : `http://newsapi.org/v2/top-headlines?country=us&apiKey=${myKey}`,
+    url : `http://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${myKey}`,
     type : 'GET',
     data : 'json',
     success : function(data){
-      console.log(data);
+    console.log(data);
 
+
+      document.getElementById('result').innerHTML ='';
       var i;
       for (i = 0; i < data.articles.length; i++) {
 
@@ -37,13 +86,16 @@ document.getElementById('submit').addEventListener('click', function(){
             '<img class="card-img-top" src="' + data.articles[i].urlToImage + '" alt="image"></img>' +
             '<div class="card-body">' +
                 '<h4>' + data.articles[i].title + '</h4>' +
+                '<p>By: ' + data.articles[i].author + '</p>' +
+                '<p>Posted: ' + data.articles[i].publishedAt + '</p>' +
                 '<p>' + data.articles[i].description + '</p>' +
-                '<p>Author: ' + data.articles[i].author + '</p>' +
-                '<a class="card-link" href=" ' + data.articles[i].url + '">Read more..</a>' +
+                // '<p>Author: ' + data.articles[i].author + '</p>' +
+                '<a class="card-link" href="' + data.articles[i].url + '" target="_blank">Read more..</a>' +
             '</div>' +
           '</div>' +
         '</div>'
       }
+
     },
 
     error : function(){
@@ -51,8 +103,62 @@ document.getElementById('submit').addEventListener('click', function(){
     }
 
 
+  }); //ajax ends
 
-  }); //ajax
+
+} //end of displayAll
+
+  displayAll();
+
+function displayData(nation, sort, source){
+
+  // if(nation === "choose"){
+  //   var url = `http://newsapi.org/v2/top-headlines?&apiKey=${myKey}`;
+  // }else {
+  //   var url = `http://newsapi.org/v2/top-headlines?country=${nation}&category=${sort}&apiKey=${myKey}`;
+  // } //ends if
+
+  //retrieve data with ajax method
+  $.ajax({
+    url : `http://newsapi.org/v2/top-headlines?country=${nation}&category=${sort}&source=${source}&apiKey=${myKey}`,
+    type : 'GET',
+    data : 'json',
+    success : function(data){
+    console.log(data);
 
 
-}); //document ready
+      document.getElementById('result').innerHTML ='';
+      var i;
+      for (i = 0; i < data.articles.length; i++) {
+
+        document.getElementById('result').innerHTML +=
+        '<div class="col col-sm-6 col-md-3 col-lg-3 my-3">' +
+          '<div class="card" style="width: 18rem;">' +
+            '<img class="card-img-top" src="' + data.articles[i].urlToImage + '" alt="image"></img>' +
+            '<div class="card-body">' +
+                '<h4>' + data.articles[i].title + '</h4>' +
+                '<p>By: ' + data.articles[i].author + '</p>' +
+                '<p>Posted: ' + data.articles[i].publishedAt + '</p>' +
+                '<p>' + data.articles[i].description + '</p>' +
+                // '<p>Author: ' + data.articles[i].author + '</p>' +
+                '<a class="card-link" href="' + data.articles[i].url + '" target="_blank">Read more..</a>' +
+            '</div>' +
+          '</div>' +
+        '</div>'
+      }
+
+    },
+
+    error : function(){
+      console.log('error');
+    }
+
+
+  }); //ajax ends
+
+
+}; // function display data ends here
+
+
+
+}); //document ready ends

@@ -91,6 +91,7 @@ module.exports = function(grunt) {
   // // Default task(s).
   grunt.registerTask('ugly', ['uglify']);
   grunt.registerTask('default', ['watch']); //run this using grunt
-  grunt.registerTask('test', ['cssmin','sass','jshint','csslint','imagemin']); //run this using grunt test
+  grunt.registerTask('css', ['cssmin','sass','csslint']);
+  grunt.registerTask('others', ['jshint','imagemin']); //run this using grunt test
 
 };

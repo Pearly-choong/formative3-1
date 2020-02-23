@@ -12,3 +12,16 @@ h1 {
   font-size: 50px;
   font-family: 'Roboto Slab', serif;
 }
+
+.hover-style:hover {
+  color: blue;
+  font-weight: bold;
+}
+
+
+.re-position {
+  z-index: 2;
+  top: 300px;
+  left: 300px;
+
+}
