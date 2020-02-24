@@ -37,7 +37,7 @@ module.exports = function(grunt) {
     }
   },
     jshint: {
-    all: ['Gruntfile.js', 'js/*.js']
+    all: ['Gruntfile.js', 'js/script.js']
   },
 
   // htmllint: {
@@ -62,8 +62,8 @@ module.exports = function(grunt) {
             //     use: [mozjpeg()] // Example plugin usage
             // },
             files: {
-                'imagemin/*.jpg': 'images/image1.jpg',
-                'imagemin/*.jpg': 'images/image2.jpg'
+                'imagemin/coverimg2.jpg': 'images/coverimg2.jpg',
+                'imagemin/coverimg4.jpg': 'images/coverimg4.jpg'
             }
         },
         dynamic: {
@@ -84,14 +84,12 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-cssmin');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-jshint');
-  // grunt.loadNpmTasks('grunt-html');
+  grunt.loadNpmTasks('grunt-html');
   grunt.loadNpmTasks('grunt-contrib-csslint');
   grunt.loadNpmTasks('grunt-contrib-imagemin');
 
-  // // Default task(s).
-  grunt.registerTask('ugly', ['uglify']);
-  grunt.registerTask('default', ['watch']); //run this using grunt
-  grunt.registerTask('css', ['cssmin','sass','csslint']);
-  grunt.registerTask('others', ['jshint','imagemin']); //run this using grunt test
 
+  // grunt.registerTask('validate', ['sass','csslint']);
+  grunt.registerTask('default', ['watch']); //run this using grunt
+  grunt.registerTask('minimise', ['cssmin','imagemin','uglify']); //run this using grunt test
 };

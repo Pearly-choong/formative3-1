@@ -1,134 +1,123 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>NEWS API</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/style.css">
+<head>
+  <meta charset="utf-8">
+  <title>NEWS API</title>
+  <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
 
-    <!-- favicon -->
-    <link rel="shortcut icon" type="image/png" href="images/newslogo.png">
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/png" href="images/newslogo.png">
 
-    <!-- link to google font -->
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+  <!-- link to google font -->
+  <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
 
-  </head>
-  <body class="container-fluid">
-    <h1 class="text-center my-5">Live News</h1>
-    <hr>
-    <nav class="navbar navbar-expand-lg navbar-light">
-
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="nav mr-auto">
-      <li>
-         <button id="home" class="btn genreBtn btn-lg hover-style" type="button">HOME</button>
-      </li>
-      <li>
-         <button id="about" class="btn genreBtn btn-lg hover-style" type="button">ABOUT</button>
-      </li>
-      <li>
-         <button id="articles" class="btn genreBtn btn-lg hover-style" type="button">ARTICLES</button>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button id="search" class="btn btn-outline-primary my-2 my-sm-0" type="button">Search News</button>
-    </form>
-  </div>
-
-</nav>
+</head>
+<body class="container-fluid">
+  <h1 class="text-center my-5">Live News</h1>
+  <hr>
+  <nav class="navbar navbar-expand-lg navbar-light">
 
 
-    <sec id="homeSec" class="mb-3">
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="nav mr-auto">
+        <li>
+          <button id="home" class="btn genreBtn btn-lg hover-style" type="button">HOME</button>
+        </li>
+        <li>
+          <button id="about" class="btn genreBtn btn-lg hover-style" type="button">ABOUT</button>
+        </li>
+        <li>
+          <button id="articles" class="btn genreBtn btn-lg hover-style" type="button">ARTICLES</button>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button id="search" class="btn btn-outline-primary my-2 my-sm-0" type="button">Search News</button>
+      </form>
+    </div>
 
-        <h1 class="text-center py-5 text-light bg-dark">Welcome to Top Headlines News!!</h1>
-
-        <!-- <button id="view" class="btn btn-outline-primary my-2 my-sm-0 re-position" type="button">View Articles</button> -->
-        <img class="mw-100 pb-3 position-relatives" src="images/coverimg2.jpg" alt="cover image">
-
-    </sec>
-
-
-    <sec id="aboutSec">
-      <h1 class="text-center py-5">About</h1>
-
-      <div class="container text-center mb-4">
-        <p>Website developer : Pearly Choong</br>UX / UI Designer & Web Developer | New Zealand</p>
-        <p>Overview : </br> A single page application that allows the user to browse items retrieved from NewsApi using a Javascript framework and User interface library.</p>
-        <p>Purpose of the site : </br> Allows user to view news stories from around the world. To filter articles by Country or Category or Source. </p>
-        <p>Resources : News API <a href="https://newsapi.org" target="_blank" class="primary-text">(https://newsapi.org)</a></p>
-        <img class="w-100 img-thumbnail algin-items-center" src="images/coverimg4.jpg" alt="image">
-      </div>
-
-    </sec>
+  </nav>
 
 
-    <sec id="articleSec">
-      <div class="border border-dark px-3 bg-dark mb-3">
+  <sec id="homeSec" class="mb-3">
+
+    <h1 class="text-center py-5 text-light bg-dark">Welcome to Top Headlines News!!</h1>
+
+    <img class="mw-100 pb-3" src="images/coverimg2.jpg" alt="cover image">
+
+  </sec> <!-- end of home section -->
+
+
+  <sec id="aboutSec">
+    <h1 class="text-center py-5">About</h1>
+
+    <div class="container text-center mb-4">
+      <p>Website developer : Pearly Choong</br>UX / UI Designer & Web Developer | New Zealand</p>
+      <p>Overview : </br> A single page application that allows the user to browse items retrieved from NewsApi using a Javascript framework and User interface library.</p>
+      <p>Purpose of the site : </br> Allows user to view news stories from around the world. To filter articles by Country or Category or Source. </p>
+      <p>Resources : News API <a href="https://newsapi.org" target="_blank" class="primary-text">(https://newsapi.org)</a></p>
+      <img class="w-100 img-thumbnail algin-items-center" src="images/coverimg4.jpg" alt="image">
+    </div>
+
+  </sec> <!-- end of about section -->
+
+
+  <sec id="articleSec">
+    <div class="border border-dark px-3 bg-dark mb-3">
 
       <p class="text-light pt-3 display-5">Filter by: </p>
       <div class="row px-3 mb-4 align-items-center">
         <!-- endpoints -->
-       <select id="country" class="col mr-5 px-3 text-dark" name="country">
-         <option value="choose">Country</option>
-         <option value="au">Australia</option>
-         <option value="cn">China</option>
-         <option value="hk">Hong Kong</option>
-         <option value="nz">New Zealand</option>
-         <option value="us">United State</option>
-       </select>
+        <select id="country" class="col mr-5 px-3 text-dark" name="country">
+          <option value="choose">Country</option>
+          <option value="au">Australia</option>
+          <option value="cn">China</option>
+          <option value="hk">Hong Kong</option>
+          <option value="jp">Japan</option>
+          <option value="nz">New Zealand</option>
+          <option value="us">United State</option>
+        </select>
 
-       <select id="category" class="col mr-5 px-3 text-dark" name="category">
-         <option value="choose">Category</option>
-         <option value="entertainment">Entertainment</option>
-         <option value="general">General</option>
-         <option value="health">Health</option>
-         <option value="sports">Sports</option>
-         <option value="technology">Technology</option>
-         <option value="science">Science</option>
-       </select>
+        <select id="category" class="col mr-5 px-3 text-dark" name="category">
+          <option value="choose">Category</option>
+          <option value="entertainment">Entertainment</option>
+          <option value="general">General</option>
+          <option value="health">Health</option>
+          <option value="sports">Sports</option>
+          <option value="technology">Technology</option>
+          <option value="science">Science</option>
+        </select>
 
-
-       <select id="source" class="col mr-5 px-3 text-dark" name="source">
-         <option value="choose">Source</option>
-         <option value="BBC News">BBC News</option>
-         <option value="Polygon">Polygon</option>
-         <option value="Youtube.com">Youtube</option>
-       </select>
-
-
-       <!-- <div class="row px-3 mb-4 align-items-center">
 
         <select id="source" class="col mr-5 px-3 text-dark" name="source">
+          <!-- <option value="" disabled selected>Source</option> -->
           <option value="choose">Source</option>
-          <option value="category">Category</option>
-          <option value="language">Language</option>
-          <option value="country">Country</option>
+          <option value="abc-news-au">ABC NEWS</option>
+          <option value="bbc-new">BBC NEWS</option>
+          <option value="fox-news">FOX NEWS</option>
+          <option value="spiegel-online">Speigel Online</option>
         </select>
-        </div> -->
-
-
-       <button id="submit" class="col btn btn-outline-light py-2 my-2 my-sm-0 mb-4" type="button">Search Articles</button>
-
-       </div>
-     </div>
 
 
 
+        <button id="submit" class="col btn btn-outline-light py-2 my-2 my-sm-0 mb-4" type="button">Search Articles</button>
+
+      </div>
+    </div>
 
 
+    <!-- display result -->
+    <div class="row mt-5" id="result"></div>
 
-       <div class="row mt-5" id="result"></div>
+  </sec> <!-- end of article section -->
 
-   </sec>
-
-    <script src="node_modules/jquery/dist/jquery.min.js"></script>
-    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
-    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
-    <script src="js/config.json"></script>
-    <script src="js/script.js"></script>
+  <script src="node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+  <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <script src="js/config.json"></script>
+  <script src="js/script.js"></script>
 
 
-  </body>
+</body>
 </html>

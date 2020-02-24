@@ -12,14 +12,14 @@ $(document).ready(function(){
     $('#homeSec').show();
     $('#aboutSec').hide();
     $('#articleSec').hide();
-  })
+  });
 
   //show about page
   $('#about').on('click',function(){
     $('#aboutSec').show();
     $('#homeSec').hide();
     $('#articleSec').hide();
-  })
+  });
 
   //show articles page
   $('#articles').on('click',function(){
@@ -52,9 +52,8 @@ $(document).ready(function(){
   console.log(myKey);
 
 
-
+ // retrieve value from user
 document.getElementById('submit').addEventListener('click', function(){
-
 
   var country = document.getElementById('country').value;
   var category = document.getElementById('category').value;
@@ -63,10 +62,11 @@ document.getElementById('submit').addEventListener('click', function(){
 
   displayData(country, category, source);
 
+
 });
 
 
-
+// display all the data
 function displayAll(){
   $.ajax({
     url : `http://newsapi.org/v2/top-headlines?sources=bbc-news&apiKey=${myKey}`,
@@ -93,7 +93,7 @@ function displayAll(){
                 '<a class="card-link" href="' + data.articles[i].url + '" target="_blank">Read more..</a>' +
             '</div>' +
           '</div>' +
-        '</div>'
+        '</div>';
       }
 
     },
@@ -110,21 +110,21 @@ function displayAll(){
 
   displayAll();
 
-function displayData(nation, sort, source){
 
-  // if(nation === "choose"){
-  //   var url = `http://newsapi.org/v2/top-headlines?&apiKey=${myKey}`;
-  // }else {
-  //   var url = `http://newsapi.org/v2/top-headlines?country=${nation}&category=${sort}&apiKey=${myKey}`;
-  // } //ends if
+ // access data from api key and display data
+function displayData(nation, cat, so){
+
+    console.log(nation, cat, so);
 
   //retrieve data with ajax method
   $.ajax({
-    url : `http://newsapi.org/v2/top-headlines?country=${nation}&category=${sort}&source=${source}&apiKey=${myKey}`,
+    url : `http://newsapi.org/v2/top-headlines?country=${nation}&category=${cat}&sources=${so}&apiKey=${myKey}`,
+    // url : url,
     type : 'GET',
     data : 'json',
     success : function(data){
     console.log(data);
+
 
 
       document.getElementById('result').innerHTML ='';
@@ -144,7 +144,7 @@ function displayData(nation, sort, source){
                 '<a class="card-link" href="' + data.articles[i].url + '" target="_blank">Read more..</a>' +
             '</div>' +
           '</div>' +
-        '</div>'
+        '</div>';
       }
 
     },
@@ -157,7 +157,9 @@ function displayData(nation, sort, source){
   }); //ajax ends
 
 
-}; // function display data ends here
+} // function display data ends here
+
+
 
 
 
