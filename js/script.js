@@ -34,15 +34,6 @@ $(document).ready(function(){
     $('#aboutSec').hide();
   });
 
-  // $('#country').on('click',function(){
-  //   $('#source').hide();
-  //
-  // });
-  //
-  // $('#source').on('click',function(){
-  //   $('#country').hide();
-  //   $('#category').hide();
-  // });
 
 
   //accessing key from json file
@@ -57,11 +48,11 @@ document.getElementById('submit').addEventListener('click', function(){
 
   var country = document.getElementById('country').value;
   var category = document.getElementById('category').value;
-  var source = document.getElementById('source').value;
-  console.log(country, category, source);
+  var source = document.getElementById('language').value;
+  console.log(country, category, language);
 
-  displayData(country, category, source);
-
+  displayData(country, category);
+//  displaySource(language);
 
 });
 
@@ -112,13 +103,13 @@ function displayAll(){
 
 
  // access data from api key and display data
-function displayData(nation, cat, so){
+function displayData(nation, cat){
 
-    console.log(nation, cat, so);
+    console.log(nation, cat);
 
   //retrieve data with ajax method
   $.ajax({
-    url : `http://newsapi.org/v2/top-headlines?country=${nation}&category=${cat}&sources=${so}&apiKey=${myKey}`,
+    url : `http://newsapi.org/v2/top-headlines?country=${nation}&category=${cat}&apiKey=${myKey}`,
     // url : url,
     type : 'GET',
     data : 'json',
@@ -158,6 +149,7 @@ function displayData(nation, cat, so){
 
 
 } // function display data ends here
+
 
 
 
